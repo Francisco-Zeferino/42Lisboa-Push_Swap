@@ -1,49 +1,55 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   rotate_actions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 15:18:38 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:34:37 by ffilipe-         ###   ########.fr       */
+/*   Created: 2023/05/24 12:01:06 by ffilipe-          #+#    #+#             */
+/*   Updated: 2023/05/24 17:29:09 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(char **num_arr)
+void	rotate_a(t_stacks *stack)
 {
-	t_stacks	stacks;
-	int			size;
-	int			i;
+	int	tmp;
+	int	size;
+	int	i;
 
+	size = stack->size_a;
 	i = 0;
-	size = get_args_len(num_arr);
-	stacks.stack_a = malloc(size * sizeof(int));
-	if (!stacks.stack_a)
-	{
-		free(stacks.stack_a);
-		return ;
-	}
-	stacks.size_a = size;
-	stacks.size_b = 0;
+	tmp = stack->stack_a[i];
+	i++;
 	while (i < size)
 	{
-		stacks.stack_a[i] = ft_atoi(num_arr[i]);
+		stack->stack_a[i - 1] = stack->stack_a[i];
 		i++;
 	}
-	reverse_rotate_a(&stacks);
+	stack->stack_a[i] = tmp;
 }
 
-int	main(int ac, char **av)
+void	rotate_b(t_stacks *stack)
 {
-	if (ac > 1)
+	int	tmp;
+	int	size;
+	int	i;
+
+	size = stack->size_b;
+	i = 0;
+	tmp = stack->stack_b[i];
+	i++;
+	while (i < size)
 	{
-		av++;
-		if (ac == 2)
-			av = ft_split(*av, ' ');
-		push_swap(av);
-		return (0);
+		stack->stack_b[i - 1] = stack->stack_b[i];
+		i++;
 	}
+	stack->stack_b[i] = tmp;
+}
+
+void	rotate_r(t_stacks *stack)
+{
+	rotate_a(stack);
+	rotate_b(stack);
 }

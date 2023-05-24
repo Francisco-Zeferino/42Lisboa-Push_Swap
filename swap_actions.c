@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap_actions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 14:43:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:34:22 by ffilipe-         ###   ########.fr       */
+/*   Created: 2023/05/24 11:50:04 by ffilipe-          #+#    #+#             */
+/*   Updated: 2023/05/24 16:43:42 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "./42Lisboa-Libft/libft.h"
-
-typedef struct s_stacks
+void swap_a(t_stacks *stack)
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	size_a;
-	int	size_b;
-}		t_stacks;
+    int tmp;
 
-int		ft_atoi(const char *str);
-int		get_args_len(char **av);
-void	rotate_a(t_stacks *stack);
-void	reverse_rotate_a(t_stacks *stack);
+    tmp = stack->stack_a[0];
+    stack->stack_a[0] = stack->stack_a[1];
+    stack->stack_a[1] = tmp;
+}
 
-#endif
+void swap_b(t_stacks *stack)
+{
+    int tmp;
+    
+    tmp = stack->stack_b[0];
+    stack->stack_b[0] = stack->stack_b[1];
+    stack->stack_b[1] = tmp;
+}
+
+void swap_s(t_stacks *stack)
+{
+    swap_a(stack);
+    swap_b(stack);
+}
