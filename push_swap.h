@@ -5,27 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 14:43:05 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/24 17:34:22 by ffilipe-         ###   ########.fr       */
+/*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
+/*   Updated: 2023/05/26 15:06:50 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#define PUSH_SWAP_H
 
-# include "./42Lisboa-Libft/libft.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include "./42Lisboa-Libft/libft.h"
 
-typedef struct s_stacks
+struct s_stacks
 {
-	int	*stack_a;
-	int	*stack_b;
-	int	size_a;
-	int	size_b;
-}		t_stacks;
+    int stack_a;
+    struct s_stacks *next;
+    struct s_stacks *prev;
+};
+typedef struct s_stacks s_stacks;
 
-int		ft_atoi(const char *str);
-int		get_args_len(char **av);
-void	rotate_a(t_stacks *stack);
-void	reverse_rotate_a(t_stacks *stack);
+void delete_node(s_stacks **head, int key);
+void insert_end(s_stacks **head, int data);
+void insert_front(s_stacks **head, int data);
+int	get_args_len(char **av);
 
 #endif
