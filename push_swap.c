@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:06:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/26 15:31:25 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/26 15:59:04 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void push_swap(char **av)
 {
-    s_stacks *head;
+    t_stack *head;
     int size;
     int i;
     
