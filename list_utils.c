@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:40:09 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/26 22:18:57 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:44:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,21 @@ void insert_end(t_stack **head, int data)
 
 void delete_node(t_stack **head, int key) 
 {
-    t_stack *tmp;
-    if (!head || !(*head))
-        return ;
-    if((*head)->number == key)
-    {
-        tmp = *head;    
-        *head = (*head)->next;
-        free(tmp);
+    t_stack *temp = *head, *prev;
+ 
+    // If head node itself holds the key to be deleted
+    if (temp != NULL && temp->number == key) {
+        *head = temp->next; // Changed head
+        free(temp); // free old head
+        return;
     }
+}
+
+int lst_lastitem(t_stack **head)
+{
+    while((*head != NULL))
+    {
+        (*head) = (*head)->next;
+    }
+    return((*head)->number);
 }

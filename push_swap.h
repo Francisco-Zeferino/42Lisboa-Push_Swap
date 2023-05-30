@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/28 13:34:59 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:45:17 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,19 @@ void					delete_node(t_stack **head, int key);
 void					insert_end(t_stack **head, int data);
 void					insert_front(t_stack **head, int data);
 int						get_args_len(char **av);
-void					swap_a(t_stack **head);
-void					swap_b(t_stack **head);
-void					swap_r(t_stack **head);
+void					swap_a(t_stack **stack_a);
+void					swap_b(t_stack **stack_b);
+void 					swap_s(t_stack **stack_a, t_stack **stack_b);
+void 					rotate_a(t_stack **stack_a);
+void 					rotate_b(t_stack **stack_b);
+void 					reverse_rotate_a(t_stack **stack_a);
+void 					reverse_rotate_b(t_stack **stack_b);
+void					reverse_rotate_r(t_stack **stack_a, t_stack **stack_b);
+void					push_a(t_stack **stack_a, t_stack **stack_b);
+void 					push_b(t_stack **stack_b, t_stack **stack_a);
+void 					three_random_numbers(t_stack **stack_a, t_stack **stack_b);
+void					five_random_numbers(t_stack **stack_a, t_stack **stack_b);
+void					delete_node(t_stack **head, int key);
+int 					lst_lastitem(t_stack **head);
 
 #endif
