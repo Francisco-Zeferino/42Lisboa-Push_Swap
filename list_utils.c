@@ -6,63 +6,54 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:40:09 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/30 10:44:41 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/12 11:37:51 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void insert_front(t_stack **head, int data)
+int	stack_size(t_stack *stack)
 {
-    t_stack *newNode;
+	int	count;
 
-    newNode = malloc(sizeof(t_stack));
-    newNode->number = data;
-    newNode->next = (*head);
-    newNode->prev = NULL;
-    if((*head) != NULL)
-        (*head)->prev = newNode;
-    (*head) = newNode;
+	count = 0;
+	while (stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (count);
 }
 
-void insert_end(t_stack **head, int data)
+int	get_distance(t_stack **head, int val)
 {
-    t_stack *newNode;
-    t_stack *temp = *head;
-     
-    newNode = malloc(sizeof(t_stack));
-    newNode->number = data;
-    newNode->next = NULL;
-    temp = *head;
-    if(*head == NULL)
-    {
-        newNode->prev = NULL;
-        *head = newNode;
-        return ;
-    }
-    while(temp->next != NULL)
-        temp = temp->next;
-    temp->next = newNode;
-    newNode->prev = temp;
+	t_stack	*stack;
+	int		position;
+
+	stack = (*head);
+	position = 0;
+	while (stack)
+	{
+		if (stack->number == val)
+			break ;
+		position++;
+		stack = stack->next;
+	}
+	return (position);
 }
 
-void delete_node(t_stack **head, int key) 
+int	get_min(t_stack **head)
 {
-    t_stack *temp = *head, *prev;
- 
-    // If head node itself holds the key to be deleted
-    if (temp != NULL && temp->number == key) {
-        *head = temp->next; // Changed head
-        free(temp); // free old head
-        return;
-    }
-}
+	t_stack	*stack;
+	int		min;
 
-int lst_lastitem(t_stack **head)
-{
-    while((*head != NULL))
-    {
-        (*head) = (*head)->next;
-    }
-    return((*head)->number);
+	stack = (*head);
+	min = INT_MAX;
+	while (stack)
+	{
+		if (min > stack->number)
+			min = stack->number;
+		stack = stack->next;
+	}
+	return (min);
 }
