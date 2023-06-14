@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:06:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/12 12:57:50 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/14 10:53:02 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	push_swap(char **av)
 		insert_end(&stack_a, ft_atoi(av[i]));
 		i++;
 	}
-	if(size == 2)
+	if (size == 2)
 		two_numbers_case(&stack_a);
 	else if (size == 3)
 		three_random_numbers(&stack_a, &stack_b);
@@ -40,6 +40,8 @@ void	push_swap(char **av)
 		four_random_numbers(&stack_a, &stack_b);
 	else if (size == 5)
 		five_random_numbers(&stack_a, &stack_b);
+	else if (size > 5)
+		big_sort(&stack_a, &stack_b);
 	//printf("%d",second_smallest(&stack_a));
 	//rotate_a(&stack_a);
 }
