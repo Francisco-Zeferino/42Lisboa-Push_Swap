@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/14 15:56:12 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:29:25 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,19 +41,18 @@ void					reverse_rotate_r(t_stack **stack_a, t_stack **stack_b);
 void					push_a(t_stack **stack_a, t_stack **stack_b);
 void					push_b(t_stack **stack_b, t_stack **stack_a);
 void					two_numbers_case(t_stack **stack_a);
-void	three_random_numbers(t_stack **stack_a,
+void					three_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
-void	five_random_numbers(t_stack **stack_a,
+void					five_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
-void	four_random_numbers(t_stack **stack_a,
+void					four_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
 void					big_sort(t_stack **stack_a, t_stack **stack_b);
+int						get_stack_sum(t_stack *stack_a);
 void					delete_node(t_stack **head, int key);
 void					print_list(t_stack **head);
 int						stack_size(t_stack *stack);
 int						get_distance(t_stack **head, int index);
 void					move_top(t_stack **head, int distance);
 int						get_min(t_stack **head);
-int						get_stack_sum(t_stack *stack);
-int						calc_med(t_stack **stack_a);
 #endif

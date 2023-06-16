@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 09:06:02 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/14 15:57:43 by ffilipe-         ###   ########.fr       */
+/*   Created: 2023/06/16 09:37:08 by ffilipe-          #+#    #+#             */
+/*   Updated: 2023/06/16 10:42:36 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,26 @@
 int	calc_med(t_stack **stack_a)
 {
 	int	size;
+	int	med;
 	int	sum;
-	int med;
 
 	size = stack_size((*stack_a));
 	sum = get_stack_sum((*stack_a));
-	med = size / sum;
-
-
+	med = sum / size;
+	return (med);
 }
 
 void	big_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	calc_med(stack_a);
+	int med;
+
+	med = 0;
+	while (stack_size((*stack_a)) > 5)
+	{
+		med = calc_med(stack_a);
+		if ((*stack_a)->number < med)
+			push_b(stack_b, stack_a);
+		else if ((*stack_a)->number > med)
+			rotate_a(stack_a);
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:06:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/14 10:53:02 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/16 09:43:05 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	push_swap(char **av)
 		five_random_numbers(&stack_a, &stack_b);
 	else if (size > 5)
 		big_sort(&stack_a, &stack_b);
-	//printf("%d",second_smallest(&stack_a));
-	//rotate_a(&stack_a);
+	// printf("%d",second_smallest(&stack_a));
+	// rotate_a(&stack_a);
 }
 
 int	main(int ac, char **av)
