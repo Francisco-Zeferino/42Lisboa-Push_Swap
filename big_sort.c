@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:37:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/19 15:35:21 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 19:45:18 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,4 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 			rotate_a(stack_a);
 	}
 	five_random_numbers(stack_a, stack_b);
-
 }
