@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:37:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/16 10:42:36 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:35:21 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	calc_med(t_stack **stack_a)
 
 void	big_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int med;
+	int	med;
 
 	med = 0;
 	while (stack_size((*stack_a)) > 5)
@@ -37,4 +37,6 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 		else if ((*stack_a)->number > med)
 			rotate_a(stack_a);
 	}
+	five_random_numbers(stack_a, stack_b);
+
 }

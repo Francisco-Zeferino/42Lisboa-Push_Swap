@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:40:09 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/16 10:28:51 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:13:06 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,22 @@ int	get_min(t_stack **head)
 		stack = stack->next;
 	}
 	return (min);
+}
+
+int	get_max(t_stack **head)
+{
+	t_stack	*stack;
+	int		max;
+
+	stack = (*head);
+	max = INT_MIN;
+	while (stack)
+	{
+		if (max < stack->number)
+			max = stack->number;
+		stack = stack->next;
+	}
+	return (max);
 }
 
 int	get_stack_sum(t_stack *stack_a)
