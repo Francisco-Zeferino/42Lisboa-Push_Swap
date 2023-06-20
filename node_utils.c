@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 08:50:45 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/12 08:50:55 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:18:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	delete_node(t_stack **head, int key)
 
 void	print_list(t_stack **head)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	temp = (*head);
 	while ((*head))

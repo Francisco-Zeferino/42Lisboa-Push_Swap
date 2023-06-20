@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/19 19:45:38 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:42:31 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,17 @@ struct					s_stack
 };
 typedef struct s_stack	t_stack;
 
+struct					s_table
+{
+	int					b_friend;
+	int					number;
+	int					b_friend_moves;
+	int					number_moves;
+	int					cost;
+	struct s_table		*next;
+};
+typedef struct s_table	t_table;
+
 void					delete_node(t_stack **head, int key);
 void					insert_end(t_stack **head, int data);
 void					insert_front(t_stack **head, int data);
@@ -41,18 +52,20 @@ void					reverse_rotate_r(t_stack **stack_a, t_stack **stack_b);
 void					push_a(t_stack **stack_a, t_stack **stack_b);
 void					push_b(t_stack **stack_b, t_stack **stack_a);
 void					two_numbers_case(t_stack **stack_a);
-void					three_random_numbers(t_stack **stack_a,
+void	three_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
-void					five_random_numbers(t_stack **stack_a,
+void	five_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
-void					four_random_numbers(t_stack **stack_a,
+void	four_random_numbers(t_stack **stack_a,
 							t_stack **stack_b);
-void					big_sort(t_stack **stack_a, t_stack **stack_b);
+void					big_sort(t_stack **stack_a, t_stack **stack_b,
+							t_table **t_info);
 int						get_stack_sum(t_stack *stack_a);
 void					delete_node(t_stack **head, int key);
 void					print_list(t_stack **head);
 int						stack_size(t_stack *stack);
 int						get_distance(t_stack **head, int index);
+int						get_friend(t_stack **stack_a, int ref);
 void					move_top(t_stack **head, int distance);
 int						get_min(t_stack **head);
 int						get_max(t_stack **head);

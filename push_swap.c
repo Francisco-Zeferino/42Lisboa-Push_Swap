@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:06:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/16 09:43:05 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:21:35 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_swap(char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack	*tmp;
+	t_table	*t_info;
 	int		size;
 	int		i;
 
@@ -24,6 +24,7 @@ void	push_swap(char **av)
 	stack_b = malloc(sizeof(t_stack));
 	stack_a = NULL;
 	stack_b = NULL;
+	t_info = NULL;
 	i = 1;
 	size = get_args_len(av);
 	insert_front(&stack_a, ft_atoi(av[0]));
@@ -41,9 +42,7 @@ void	push_swap(char **av)
 	else if (size == 5)
 		five_random_numbers(&stack_a, &stack_b);
 	else if (size > 5)
-		big_sort(&stack_a, &stack_b);
-	// printf("%d",second_smallest(&stack_a));
-	// rotate_a(&stack_a);
+		big_sort(&stack_a, &stack_b, &t_info);
 }
 
 int	main(int ac, char **av)

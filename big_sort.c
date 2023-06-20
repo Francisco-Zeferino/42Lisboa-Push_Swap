@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:37:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/19 19:45:18 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/20 15:44:05 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ int	calc_med(t_stack **stack_a)
 	return (med);
 }
 
-void	big_sort(t_stack **stack_a, t_stack **stack_b)
+void	big_sort(t_stack **stack_a, t_stack **stack_b, t_table **t_info)
 {
 	int	med;
+	int	move_cost;
 
+	move_cost = 0;
 	med = 0;
 	while (stack_size((*stack_a)) > 5)
 	{
@@ -38,4 +40,5 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b)
 			rotate_a(stack_a);
 	}
 	five_random_numbers(stack_a, stack_b);
+	printf("%d\n",get_friend(stack_a, 6));
 }
