@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:02:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/05/31 14:26:11 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 10:19:25 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,20 @@ void	rotate_a(t_stack **stack_a)
 
 void	rotate_b(t_stack **stack_b)
 {
-	int	tmp;
+	t_stack	*temp;
+	int		tmp;
 
+	temp = (*stack_b);
 	printf("rb\n");
-	tmp = (*stack_b)->number;
-	(*stack_b)->number = (*stack_b)->next->number;
-	(*stack_b)->next->number = (*stack_b)->next->next->number;
-	(*stack_b)->next->next->number = tmp;
+	while ((*stack_b) != NULL)
+	{
+		tmp = (*stack_b)->number;
+		if ((*stack_b)->next)
+		{
+			(*stack_b)->number = (*stack_b)->next->number;
+			(*stack_b)->next->number = tmp;
+		}
+		(*stack_b) = (*stack_b)->next;
+	}
+	(*stack_b) = temp;
 }

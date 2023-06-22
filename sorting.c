@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 15:19:22 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/19 19:41:47 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/22 12:26:41 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,4 @@ void	five_random_numbers(t_stack **stack_a, t_stack **stack_b)
 	three_random_numbers(stack_a, stack_b);
 	push_a(stack_a, stack_b);
 	push_a(stack_a, stack_b);
-	
 }
