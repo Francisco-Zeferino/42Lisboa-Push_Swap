@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:40:09 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/19 15:13:06 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:38:54 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	stack_size(t_stack *stack)
 {
-	int	count;
+	t_stack	*tmp;
+	int		count;
 
+	tmp = stack;
 	count = 0;
-	while (stack)
+	while (tmp)
 	{
+		tmp = tmp->next;
 		count++;
-		stack = stack->next;
 	}
 	return (count);
 }
@@ -76,7 +78,7 @@ int	get_max(t_stack **head)
 
 int	get_stack_sum(t_stack *stack_a)
 {
-	int sum;
+	int	sum;
 
 	sum = 0;
 	while (stack_a)
@@ -85,4 +87,18 @@ int	get_stack_sum(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (sum);
+}
+
+int	check_sorted(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	tmp = (*stack);
+	while (tmp && tmp->next)
+	{
+		if (tmp->number > tmp->next->number)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

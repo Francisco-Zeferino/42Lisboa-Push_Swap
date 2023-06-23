@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 15:24:40 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:22:18 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,12 @@ void					print_list(t_stack **head);
 int						stack_size(t_stack *stack);
 int						get_distance(t_stack **head, int index);
 int						get_friend(t_stack **stack_a, int ref);
-void					move_top(t_stack **head, int distance);
+void					move_top(t_stack **head, int distance, char stack);
 int						get_min(t_stack **head);
 int						get_max(t_stack **head);
+int						check_sorted(t_stack **stack);
 int						get_val_idx(t_stack **stack, int val);
-int						get_move_cost(t_stack **stack, int value_idx);
-int					best_solution(t_stack **stack_a, t_stack **stack_b,
+int						get_move_cost(t_stack **stack, int value);
+int						best_solution(t_stack **stack_a, t_stack **stack_b,
 							t_table *t_info);
 #endif

@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/19 15:46:07 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 15:55:03 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:23:19 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_val_idx(t_stack **stack, int val)
 	int		i;
 
 	stack_save = (*stack);
-	i = 1;
+	i = 0;
 	while ((*stack))
 	{
 		if ((*stack)->number == val)
@@ -33,58 +33,46 @@ int	get_val_idx(t_stack **stack, int val)
 	return (0);
 }
 
-int	get_move_cost(t_stack **stack, int value_idx)
+int	get_move_cost(t_stack **stack, int value)
 {
-	int	tmp;
-	int	i;
+	t_stack	*tmp;
+	int		count;
+	int		len;
 
-	i = 1;
-	if (value_idx == 1)
-		return (0);
-	if (value_idx <= (stack_size((*stack)) / 2))
+	len = stack_size((*stack));
+	count = 0;
+	tmp = (*stack);
+	while (tmp && tmp->number != value)
 	{
-		while (value_idx > 0)
-		{
-			i++;
-			value_idx--;
-		}
+		count++;
+		tmp = tmp->next;
 	}
-	else
-	{
-		tmp = stack_size((*stack)) - value_idx;
-		while (tmp > 0)
-		{
-			i++;
-			tmp--;
-		}
-	}
-	return (i);
+	if (count > len / 2)
+		return (len - count);
+	return (count);
 }
 
 int	get_friend(t_stack **stack_a, int ref)
 {
-	t_stack	*s_tmp_a;
-	int		nbr;
+	t_stack	*tmp;
+	int		friend;
 
-	s_tmp_a = (*stack_a);
-	while ((*stack_a))
+	friend = INT_MAX;
+	tmp = (*stack_a);
+	while (tmp)
 	{
-		if ((*stack_a)->number > ref)
-		{
-			nbr = (*stack_a)->number;
-			(*stack_a) = s_tmp_a;
-			return (nbr);
-		}
-		(*stack_a) = (*stack_a)->next;
+		if (tmp->number > ref && friend > tmp->number)
+			friend = tmp->number;
+		tmp = tmp->next;
 	}
-	(*stack_a) = s_tmp_a;
-	return (0);
+	return (friend);
 }
 
 int	best_solution(t_stack **stack_a, t_stack **stack_b, t_table *t_info)
 {
 	t_stack	*tmp;
-	int		friend;
+	int		best_friend_check;
+	int		best_friend;
 	int		lowest_cost;
 	int		cost_bf;
 	int		cost_num;
@@ -95,17 +83,18 @@ int	best_solution(t_stack **stack_a, t_stack **stack_b, t_table *t_info)
 	tmp = (*stack_b);
 	while (tmp)
 	{
-		friend = get_friend(stack_a, tmp->number);
-		cost_bf = get_move_cost(stack_a, get_val_idx(stack_a, friend));
-		cost_num = get_move_cost(stack_b, get_val_idx(stack_b, tmp->number));
+		best_friend_check = get_friend(stack_a, tmp->number);
+		cost_bf = get_move_cost(stack_a, best_friend_check);
+		cost_num = get_move_cost(stack_b, tmp->number);
 		best_cost = cost_bf + cost_num;
-		//printf("Best Friend : %d\n",friend);
 		if (best_cost < lowest_cost)
 		{
 			best_nbr = tmp->number;
 			lowest_cost = best_cost;
+			best_friend = best_friend_check;
 		}
 		tmp = tmp->next;
 	}
+	move_top(stack_a, get_val_idx(stack_a, best_friend), 'a');
 	return (best_nbr);
 }
