@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 10:02:24 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 10:19:25 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:34:00 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate_a(t_stack **stack_a)
 	int		tmp;
 
 	temp = (*stack_a);
-	printf("ra\n");
+	write(1, "ra\n", 3);
 	while ((*stack_a) != NULL)
 	{
 		tmp = (*stack_a)->number;
@@ -38,7 +38,7 @@ void	rotate_b(t_stack **stack_b)
 	int		tmp;
 
 	temp = (*stack_b);
-	printf("rb\n");
+	write(1, "rb\n", 3);
 	while ((*stack_b) != NULL)
 	{
 		tmp = (*stack_b)->number;

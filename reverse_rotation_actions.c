@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/29 11:20:03 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/22 09:26:03 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 12:33:38 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	reverse_rotate_a(t_stack **stack_a)
 	int		last;
 
 	temp = (*stack_a);
-	printf("rra\n");
+	write(1, "rra\n", 4);
 	while ((*stack_a)->next)
 		(*stack_a) = (*stack_a)->next;
 	last = (*stack_a)->number;
@@ -41,7 +41,7 @@ void	reverse_rotate_b(t_stack **stack_b)
 	int		last;
 
 	temp = (*stack_b);
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 	while ((*stack_b)->next)
 		(*stack_b) = (*stack_b)->next;
 	last = (*stack_b)->number;
@@ -54,10 +54,4 @@ void	reverse_rotate_b(t_stack **stack_b)
 		(*stack_b) = (*stack_b)->next;
 	}
 	(*stack_b) = temp;
-}
-
-void	reverse_rotate_r(t_stack **stack_a, t_stack **stack_b)
-{
-	reverse_rotate_a(stack_a);
-	reverse_rotate_b(stack_b);
 }

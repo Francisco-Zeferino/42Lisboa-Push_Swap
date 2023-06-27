@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 09:37:08 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/23 15:34:33 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:34:55 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int	calc_med(t_stack **stack_a)
 	med = sum / size;
 	return (med);
 }
+
 void	big_sort(t_stack **stack_a, t_stack **stack_b, t_table *t_info)
 {
 	int	value;
 	int	med;
 
+	t_info = malloc(sizeof(t_table));
 	med = 0;
 	value = 0;
 	while (stack_size((*stack_a)) > 5)
@@ -42,8 +44,9 @@ void	big_sort(t_stack **stack_a, t_stack **stack_b, t_table *t_info)
 	while ((*stack_b))
 	{
 		value = best_solution(stack_a, stack_b, t_info);
-		move_top(stack_b, get_val_idx(stack_b, value), 'b');
+		move_top_b(stack_b, get_val_idx(stack_b, value));
 		push_a(stack_a, stack_b);
 	}
-	move_top(stack_a, get_val_idx(stack_a, get_min(stack_a)), 'a');
+	move_top_a(stack_a, get_val_idx(stack_a, get_min(stack_a)));
+	free(t_info);
 }
