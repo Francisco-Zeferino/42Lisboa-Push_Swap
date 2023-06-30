@@ -6,7 +6,7 @@
 /*   By: ffilipe- <ffilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 11:11:10 by ffilipe-          #+#    #+#             */
-/*   Updated: 2023/06/27 15:36:19 by ffilipe-         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:43:26 by ffilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@ struct					s_table
 };
 
 int						ft_atoi_max(const char *str);
-int						conv_to_nbr(const char *str, int sign);
 void					delete_node(t_stack **head, int key);
 void					insert_end(t_stack **head, int data);
 void					insert_front(t_stack **head, int data);
 int						get_args_len(char **av);
 void					check_params(int ac, char **av);
-void					check_dup(t_stack *stack, int nbr);
-void					dup_checker(t_stack *stack_a);
+int						check_dup(long tmp, char **av, int i);
+void					validator(char **av, t_stack **stack_a);
+int						valid_num_str(char *s);
+int						ft_is_digit(char c);
 void					free_list(t_stack *head);
 void					def_cases(t_stack *stack_a, t_stack *stack_b,
 							t_table *t_info, int size);
